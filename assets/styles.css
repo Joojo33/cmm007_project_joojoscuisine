@@ -1,0 +1,59 @@
+.custom-navbar {
+  padding: 20px 20px 20px 20px;
+}
+
+.custom-nav {
+  padding: 20px 20px 20px 20px;
+}
+
+.hero-image {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.hero-text {
+  color: white;
+  font-size: 4vw; /* Responsive font size */
+}
+
+/* Ensuring the text is readable over any image */
+.hero-text h1,
+.hero-text p {
+  text-shadow: 2px 2px 4px #000;
+}
+
+.home-img {
+  padding: 20px 0 20px 0;
+}
+.container {
+  padding: 20px 0 20px 0;
+}
+
+.form-required::after {
+  content: " *";
+  color: red;
+}
+.col {
+  padding: 20px 20px 20px 20px;
+}
+
+.custom-container {
+  width: 30%;
+}
+
+#customDisabledButton:disabled {
+  opacity: 1; /* Prevents the button from fading */
+  pointer-events: none; /* Ensures the button doesn't react to clicks */
+}
+
+.custom-border {
+  border-right: 1px;
+  border-top: 1px;
+  border-bottom: 1px;
+  border-color: #0a58ca;
+}
+
+.custom-card-header {
+  padding: 20px 0 20px 20px;
+}
