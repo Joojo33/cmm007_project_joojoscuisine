@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'config.php'; // Adjust the path as needed to your database configuration file
+require_once 'config.php'; 
 
 // Initialize a variable to hold potential messages
 $message = "";
@@ -14,7 +14,7 @@ if (!isset($_SESSION['user_id'])) {
         $message = "Recipe title is required.";
     } else {
         $title = $_POST['title'];
-        $targetDir = "../uploads/"; // Ensure this directory exists and is writable
+        $targetDir = "../uploads/";
 
         // Sanitize the file name to prevent directory traversal or any unwanted script execution
         $fileName = basename($_FILES["fileToUpload"]["name"]);
@@ -56,6 +56,4 @@ if (!empty($message)) {
 header('Location: ../chef.php');
 exit;
 
-// Optional: If you haven't redirected and need to close the connection
-// $conn->close();
 ?>

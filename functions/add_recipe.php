@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'config.php'; // Adjust the path as needed
+require_once 'config.php';
 
 if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
@@ -31,10 +31,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     } catch (mysqli_sql_exception $e) {
         if ($conn->errno === 1062) {
+
             // Handle duplicate entry for the unique title
             $errorMessage = "A recipe with this title already exists.";
             header("Location: ../chef.php?error=" . urlencode($errorMessage));
             exit;
+
         } else {
             // Handle other SQL errors
             $errorMessage = "Database error: unable to insert record.";

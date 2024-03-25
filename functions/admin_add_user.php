@@ -13,21 +13,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $conn->real_escape_string(trim($_POST['email']));
     $password = $_POST['password']; // Will be hashed before storage
     $telephone = $conn->real_escape_string(trim($_POST['telephone']));
-    $bio = $conn->real_escape_string(trim($_POST['bio']));
+    $userRole = $conn->real_escape_string(trim($_POST['userRole']));
 
     // Hash the password
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
     // Prepare SQL to prevent SQL injection
-    $sql = $conn->prepare("INSERT INTO users (uname, email, passwordHash, telephone, bio) VALUES (?, ?, ?, ?, ?)");
-    $sql->bind_param("sssss", $name, $email, $passwordHash, $telephone, $bio);
+    $sql = $conn->prepare("INSERT INTO users (uname, email, passwordHash, telephone, userRole) VALUES (?, ?, ?, ?, ?)");
+    $sql->bind_param("sssss", $name, $email, $passwordHash, $telephone, $userRole);
 
     // Attempt to execute the prepared statement
     if ($sql->execute()) {
-        // On success, set session variable and redirect to chef.php
-        $_SESSION['user_id'] = $conn->insert_id; 
-        $_SESSION['user_name'] = $name;
-        header("Location: ../chef.php"); 
+        // On success, simply redirect to admin.php without setting session variables for the new user
+        header("Location: ../admin.php"); // Adjust the path as needed
         exit;
     } else {
         echo "Something went wrong. Please try again later.";

@@ -2,7 +2,7 @@
 
 
 session_start();
-require_once 'config.php'; // Adjust the path as needed
+require_once 'config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title = $conn->real_escape_string($_POST['title']);
